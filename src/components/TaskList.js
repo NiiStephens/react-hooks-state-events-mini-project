@@ -1,9 +1,19 @@
 import React from "react";
+import Task from "./Task";
+import { nanoid } from "nanoid"
 
-function TaskList() {
+function TaskList({ tasks, onDeleteTask}) {
+  const taskList = tasks.map((task) => (
+    <Task 
+    key = {nanoid(5)}
+    text = {task.text}
+    category = {task.category}
+    onDeleteTask = {onDeleteTask} 
+    />
+  ))
   return (
     <div className="tasks">
-      {/* display a list of tasks using Task component */}
+      {taskList}
     </div>
   );
 }
